@@ -9,6 +9,8 @@ In the reproduction folder, we provide our jupyter notebook scripts for tree dat
 For example:
 ![result](result.png)
 
+In the use-case folder, we demonstrate the use of the Shapley value in various tasks, such as data summarization, active data acquisition, noisy label detection, and watermark detection.
+
 If you have any questions about our code, please do not hesitate to ask in the issues. Thanks!  
 
           
