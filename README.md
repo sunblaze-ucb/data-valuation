@@ -13,7 +13,7 @@ In the knn_mc folder, we implement an improved Monte Carlo approach to approxima
 
 In the group_testing folder, we implelment the group testing-based approximation algorithm to approximate the Shapley value for general bounded utility functions.
 
-In the use-case folder, we demonstrate how to apply the Shapley value to various tasks, such as data summarization, active data acquisition, noisy label detection, and watermark detection.
+In the use_case folder, we demonstrate how to apply the Shapley value to various tasks, such as data summarization, active data acquisition, noisy label detection, and watermark detection.
 
 If you have any questions about our code, please do not hesitate to ask in the issues. Thanks!  
 
