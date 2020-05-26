@@ -8,7 +8,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from tqdm import tqdm_notebook
 from collections import OrderedDict
-from scipy.misc import toimage
+from scipy.misc import *
 import torch
 import cv2
 import acoustics
