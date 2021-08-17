@@ -3,11 +3,11 @@ from cvxpy import *
 
 # logistic regression by cvx
 def estimate_testing_loss_weight(x_trn, y_trn, x_tst, y_tst, regularizer, max_loss):
-    w = Variable(x_trn.shape[1],1)
+    w = Variable(x_trn.shape[1])
     n_trn = x_trn.shape[0]
     loss = 0
     for ni in range(n_trn):
-        loss += logistic(-y_trn[ni]*x_trn[ni,:]*w)
+        loss += logistic(-y_trn[ni]*x_trn[ni,:]@w)
     prob = Problem(Minimize(1 / n_trn * loss + regularizer / 2 * sum_squares(w)))
     result = prob.solve(solver=SCS)
     w_value = np.squeeze(np.array(w.value))

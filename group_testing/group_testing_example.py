@@ -56,6 +56,7 @@ for j in range(1, N-1):
     k = j + 1
     q_tot += q[j] * (1 + 2 * k * (k - N) / (N*(N-1)))
 T_new = 4/(1-q_tot**2)/h(2*epsilon/Z/r/(1-q_tot**2))*np.log(N*(N-1)/(2*delta))
+T_new = int(np.ceil(T_new))
 
 ## parallelise trials
 def paralell_sample_group_testing(t,x_trn,y_trn,x_tst,y_tst,N,q,T,start_time):
@@ -101,8 +102,8 @@ s = Variable(N)
 constraints = [sum_entries(s)==u_tot]
 for i in range(N):
     for j in range(i+1,N):
-        constraints.append(s[i]-s[j]<= epsilon + C[(i,j)])
-        constraints.append(s[i] - s[j] >= -epsilon + C[(i, j)])
+        constraints.append(s[i]-s[j]<= epsilon / (2 * np.math.sqrt(N)) + C[(i,j)])
+        constraints.append(s[i] - s[j] >= -epsilon / (2 * np.math.sqrt(N)) + C[(i, j)])
 
 prob = Problem(Minimize(0),constraints)
 result = prob.solve(solver=SCS)
