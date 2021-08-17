@@ -56,6 +56,7 @@ for j in range(1, N-1):
     k = j + 1
     q_tot += q[j] * (1 + 2 * k * (k - N) / (N*(N-1)))
 T_new = 4/(1-q_tot**2)/h(2*epsilon/Z/r/(1-q_tot**2))*np.log(N*(N-1)/(2*delta))
+T_new = int(np.ceil(T_new))
 
 ## parallelise trials
 def paralell_sample_group_testing(t,x_trn,y_trn,x_tst,y_tst,N,q,T,start_time):
