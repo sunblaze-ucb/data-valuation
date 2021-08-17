@@ -102,8 +102,8 @@ s = Variable(N)
 constraints = [sum_entries(s)==u_tot]
 for i in range(N):
     for j in range(i+1,N):
-        constraints.append(s[i]-s[j]<= epsilon + C[(i,j)])
-        constraints.append(s[i] - s[j] >= -epsilon + C[(i, j)])
+        constraints.append(s[i]-s[j]<= epsilon / (2 * np.math.sqrt(N)) + C[(i,j)])
+        constraints.append(s[i] - s[j] >= -epsilon / (2 * np.math.sqrt(N)) + C[(i, j)])
 
 prob = Problem(Minimize(0),constraints)
 result = prob.solve(solver=SCS)
